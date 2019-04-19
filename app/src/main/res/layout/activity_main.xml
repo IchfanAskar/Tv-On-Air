@@ -15,14 +15,10 @@
             android:layout_height="match_parent" />
 
         <ProgressBar
-            style="?android:progressBarStyleHorizontal"
+            android:id="@+id/pbTOA"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:foregroundGravity="center"
-            android:visibility="invisible"
-            tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="264dp"
-            tools:ignore="MissingConstraints" />
+            android:layout_height="match_parent"
+            android:visibility="invisible"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,6 +9,7 @@ import retrofit2.Response;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.example.tvonair.adapter.TOAAdapter;
 import com.example.tvonair.databinding.ActivityMainBinding;
@@ -31,11 +32,18 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         activityMainBinding.rvToa.setLayoutManager(linearLayoutManager);
 
+        activityMainBinding.pbTOA.setVisibility(View.VISIBLE);
+
+        getTOA();
+    }
+
+    private void getTOA() {
         TOAService.getApi().getListOnAir("678ef42a1b584848591cbd02ac3899c3", "en-US")
                 .enqueue(new Callback<TOAResponse>() {
                     @Override
                     public void onResponse(Call<TOAResponse> call, Response<TOAResponse> response) {
-                        if (response.isSuccessful()){
+                        if (response.isSuccessful()) {
+                            activityMainBinding.pbTOA.setVisibility(View.INVISIBLE);
                             List<TOAResponse.ResultsTrailer> resultsTrailers = response.body().getResults();
                             adapter = new TOAAdapter(resultsTrailers, MainActivity.this);
                             activityMainBinding.rvToa.setAdapter(adapter);
