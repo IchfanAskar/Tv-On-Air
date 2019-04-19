@@ -1,13 +1,17 @@
 package com.example.tvonair.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.example.tvonair.DetailActivity;
 import com.example.tvonair.R;
+import com.example.tvonair.common.Constants;
 import com.example.tvonair.databinding.ListToaBinding;
 import com.example.tvonair.model.TOAResponse;
 import com.example.tvonair.model.TOAResponse.ResultsTrailer;
@@ -19,7 +23,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TOAAdapter extends RecyclerView.Adapter<TOAAdapter.TOAViewHolder> {
-    private static final String IMG_BASE_URL ="https://image.tmdb.org/t/p/w185";
+//    private static final String IMG_BASE_URL ="https://image.tmdb.org/t/p/w185";
     private List<ResultsTrailer> results;
     private Context context;
 
@@ -38,15 +42,27 @@ public class TOAAdapter extends RecyclerView.Adapter<TOAAdapter.TOAViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull TOAViewHolder holder, int position) {
-        TOAResponse.ResultsTrailer resultsTrailer = results.get(position);
+        final TOAResponse.ResultsTrailer resultsTrailer = results.get(position);
 //        holder.viewDataBinding.setTv(resultsTrailer);
 
         holder.viewDataBinding.judulToa.setText(resultsTrailer.getName());
         holder.viewDataBinding.tanggalToa.setText(resultsTrailer.getFirstAirDate());
 
         Glide.with(context)
-                .load(IMG_BASE_URL + resultsTrailer.getPosterPath())
+                .load(Constants.POSTER_BASE_URL + resultsTrailer.getPosterPath())
                 .into(holder.viewDataBinding.imgToa);
+
+        //memindahkan data ke fragmet baru
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("tv_intent", (Parcelable) resultsTrailer);
+                context.startActivity(intent);
+
+            }
+        });
 
     }
 
