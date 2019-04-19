@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        activityMainBinding.rvToa.setLayoutManager(linearLayoutManager);
+         activityMainBinding.rvToa.setLayoutManager(linearLayoutManager);
 
         activityMainBinding.pbTOA.setVisibility(View.VISIBLE);
 
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getTOA() {
-        TOAService.getApi().getListOnAir("678ef42a1b584848591cbd02ac3899c3", "en-US")
+        TOAService.getApi().getListOnAir("678ef42a1b584848591cbd02ac3899c3")
                 .enqueue(new Callback<TOAResponse>() {
                     @Override
                     public void onResponse(Call<TOAResponse> call, Response<TOAResponse> response) {

@@ -30,26 +30,26 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="judul" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/d_id_judul"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintLeft_toRightOf="@+id/poster_image"
-            app:layout_constraintTop_toBottomOf="@+id/d_judul"
-            tools:text="id" />
+        <!--<androidx.appcompat.widget.AppCompatTextView-->
+            <!--android:id="@+id/d_id_judul"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/poster_image"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/d_judul"-->
+            <!--tools:text="id" />-->
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/d_tanggal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="@+id/poster_image"
-            app:layout_constraintTop_toBottomOf="@+id/d_id_judul"
+            app:layout_constraintTop_toBottomOf="@+id/d_judul"
             tools:text="tanggal" />
 
         <TextView
@@ -133,39 +133,39 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tx_bhs"/>
         
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_review"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tx_review"/>
+        <!--<androidx.recyclerview.widget.RecyclerView-->
+            <!--android:id="@+id/rv_review"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginLeft="16dp"-->
+            <!--android:layout_marginRight="16dp"-->
+            <!--app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--app:layout_constraintRight_toRightOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/tx_review"/>-->
 
-        <TextView
-            android:id="@+id/tx_trailer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:text="TRAILER"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/rv_review"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+        <!--<TextView-->
+            <!--android:id="@+id/tx_trailer"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="16dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:text="TRAILER"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="20sp"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/rv_review"-->
+            <!--app:layout_constraintLeft_toLeftOf="parent"/>-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_trailer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tx_trailer"/>
+        <!--<androidx.recyclerview.widget.RecyclerView-->
+            <!--android:id="@+id/rv_trailer"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginLeft="16dp"-->
+            <!--android:layout_marginRight="16dp"-->
+            <!--app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--app:layout_constraintRight_toRightOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/tx_trailer"/>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

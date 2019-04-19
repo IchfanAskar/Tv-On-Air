@@ -10,8 +10,8 @@ public interface APIEndpoint {
 
     @GET("tv/on_the_air")
     Call<TOAResponse> getListOnAir(
-            @Query("api_key") String apiKey,
-            @Query("language") String bahasa
+            @Query("api_key") String apiKey
+//            @Query("language") String bahasa
 //            @Query("page") int halaman
     );
 }

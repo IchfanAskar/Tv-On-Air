@@ -35,7 +35,7 @@ public class TOAAdapter extends RecyclerView.Adapter<TOAAdapter.TOAViewHolder> {
     @NonNull
     @Override
     public TOAViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
+        View view = LayoutInflater.from(context)
                 .inflate(R.layout.list_toa, parent, false);
         return new TOAViewHolder(view);
     }
@@ -58,7 +58,7 @@ public class TOAAdapter extends RecyclerView.Adapter<TOAAdapter.TOAViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("tv_intent", (Parcelable) resultsTrailer);
+                intent.putExtra("tv_intent", resultsTrailer);
                 context.startActivity(intent);
 
             }

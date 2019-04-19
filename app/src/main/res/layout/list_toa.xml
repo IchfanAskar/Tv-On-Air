@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!--<data>-->
-        <!--<variable-->
-            <!--name="tv"-->
-            <!--type="com.example.tvonair.model.TOAResponse.ResultsTrailer"/>-->
+    <!--<variable-->
+    <!--name="tv"-->
+    <!--type="com.example.tvonair.model.TOAResponse.ResultsTrailer"/>-->
     <!--</data>-->
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp">
+    <!--<androidx.cardview.widget.CardView-->
+        <!--android:id="@+id/card_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:layout_marginRight="16dp">-->
         <!--app:cardBackgroundColor="#000000">-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="8dp">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_toa"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/judul_toa"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintLeft_toRightOf="@id/img_toa"
-            tools:ignore="MissingConstraints" />
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tanggal_toa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/judul_toa"
-            app:layout_constraintLeft_toRightOf="@id/img_toa"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_toa"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/judul_toa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toRightOf="@id/img_toa"
+                tools:ignore="MissingConstraints" />
 
-    </androidx.cardview.widget.CardView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tanggal_toa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toRightOf="@id/img_toa"
+                app:layout_constraintTop_toBottomOf="@id/judul_toa" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--</androidx.cardview.widget.CardView>-->
 
 </layout>

@@ -2,6 +2,7 @@ package com.example.tvonair;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 
@@ -18,27 +19,33 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TOAResponse.ResultsTrailer resultsTrailer = getIntent().getParcelableExtra("tv_inten");
+        TOAResponse.ResultsTrailer resultsTrailers = getIntent().getParcelableExtra("tv_intent");
 
         activityDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
-        displayDetail(resultsTrailer);
+        displayDetail(resultsTrailers);
     }
 
-    private void displayDetail(TOAResponse.ResultsTrailer resultsTrailer){
+    private void displayDetail(TOAResponse.ResultsTrailer resultsTrailers){
         Glide.with(this)
-                .load(Constants.BACKDROP_BASE_URL + resultsTrailer.getBackdropPath())
+                .load(Constants.BACKDROP_BASE_URL + resultsTrailers.getBackdropPath())
                 .into(activityDetailBinding.idDetailTop.backgroundImage);
 
         Glide.with(this)
-                .load(Constants.POSTER_BASE_URL+ resultsTrailer.getPosterPath())
+                .load(Constants.POSTER_BASE_URL+ resultsTrailers.getPosterPath())
                 .into(activityDetailBinding.idDetailBot.posterImage);
 
-        activityDetailBinding.idDetailBot.dJudul.setText(resultsTrailer.getName());
-        activityDetailBinding.idDetailBot.dIdJudul.setText(resultsTrailer.getId());
-        activityDetailBinding.idDetailBot.dTanggal.setText(resultsTrailer.getFirstAirDate());
-        activityDetailBinding.idDetailBot.dVoteAverage.setText((int) resultsTrailer.getVoteAverage());
-        activityDetailBinding.idDetailBot.dPopularity.setText((int) resultsTrailer.getPopularity());
-        activityDetailBinding.idDetailBot.dLanguage.setText(resultsTrailer.getOriginalLanguage());
+        activityDetailBinding.idDetailBot.dJudul.setText(resultsTrailers.getName());
+//        activityDetailBinding.idDetailBot.dIdJudul.setText((int) resultsTrailers.getId());
+        activityDetailBinding.idDetailBot.dTanggal.setText(resultsTrailers.getFirstAirDate());
+//        activityDetailBinding.idDetailBot.dVoteAverage.setText((int) resultsTrailers.getVoteAverage());
+//        activityDetailBinding.idDetailBot.dPopularity.setText((int) resultsTrailers.getPopularity());
+        activityDetailBinding.idDetailBot.dLanguage.setText(resultsTrailers.getOriginalLanguage());
     }
+
+//    private void initRecyclerView(){
+//        LinearLayoutManager layoutManager =
+//                new LinearLayoutManager(DetailActivity.this, LinearLayoutManager.HORIZONTAL, false);
+//        activityDetailBinding.
+//    }
 }
