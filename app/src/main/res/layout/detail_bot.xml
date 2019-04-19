@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#ffffff"
         tools:showIn="@layout/activity_detail">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -16,7 +17,7 @@
             android:layout_marginTop="8dp"
             android:scaleType="fitXY"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/d_judul"
@@ -30,26 +31,26 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="judul" />
 
-        <!--<androidx.appcompat.widget.AppCompatTextView-->
-            <!--android:id="@+id/d_id_judul"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="8dp"-->
-            <!--android:layout_marginTop="16dp"-->
-            <!--app:layout_constraintLeft_toRightOf="@+id/poster_image"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/d_judul"-->
-            <!--tools:text="id" />-->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/d_id_judul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toRightOf="@+id/poster_image"
+            app:layout_constraintTop_toBottomOf="@+id/d_judul"
+            tools:text="id" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/d_tanggal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="@+id/poster_image"
-            app:layout_constraintTop_toBottomOf="@+id/d_judul"
+            app:layout_constraintTop_toBottomOf="@+id/d_id_judul"
             tools:text="tanggal" />
 
         <TextView
@@ -61,19 +62,19 @@
             android:text="Rate              :"
             android:textColor="#000000"
             android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/poster_image"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-        
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/poster_image" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/d_vote_average"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            tools:text="vote average"
+            android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="@+id/tx_rate"
-            app:layout_constraintTop_toBottomOf="@+id/poster_image"/>
+            app:layout_constraintTop_toBottomOf="@+id/poster_image"
+            tools:text="vote average" />
 
         <TextView
             android:id="@+id/tx_Popu"
@@ -85,18 +86,18 @@
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tx_rate"/>
+            app:layout_constraintTop_toBottomOf="@id/tx_rate" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/d_popularity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            tools:text="popularity"
+            android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="@id/tx_Popu"
-            app:layout_constraintTop_toBottomOf="@+id/d_vote_average"/>
+            app:layout_constraintTop_toBottomOf="@+id/d_vote_average"
+            tools:text="popularity" />
 
         <TextView
             android:id="@+id/tx_bhs"
@@ -108,18 +109,18 @@
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tx_Popu"/>
+            app:layout_constraintTop_toBottomOf="@+id/tx_Popu" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/d_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            tools:text="bahasa"
+            android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="@+id/tx_bhs"
-            app:layout_constraintTop_toBottomOf="@+id/d_popularity"/>
+            app:layout_constraintTop_toBottomOf="@+id/d_popularity"
+            tools:text="bahasa" />
 
         <TextView
             android:id="@+id/tx_review"
@@ -131,41 +132,41 @@
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tx_bhs"/>
-        
+            app:layout_constraintTop_toBottomOf="@+id/tx_bhs" />
+
         <!--<androidx.recyclerview.widget.RecyclerView-->
-            <!--android:id="@+id/rv_review"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:layout_marginLeft="16dp"-->
-            <!--android:layout_marginRight="16dp"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/tx_review"/>-->
+        <!--android:id="@+id/rv_review"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginRight="16dp"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/tx_review"/>-->
 
         <!--<TextView-->
-            <!--android:id="@+id/tx_trailer"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="16dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:text="TRAILER"-->
-            <!--android:textColor="#000000"-->
-            <!--android:textSize="20sp"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/rv_review"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"/>-->
+        <!--android:id="@+id/tx_trailer"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:text="TRAILER"-->
+        <!--android:textColor="#000000"-->
+        <!--android:textSize="20sp"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/rv_review"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"/>-->
 
         <!--<androidx.recyclerview.widget.RecyclerView-->
-            <!--android:id="@+id/rv_trailer"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:layout_marginLeft="16dp"-->
-            <!--android:layout_marginRight="16dp"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/tx_trailer"/>-->
+        <!--android:id="@+id/rv_trailer"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginRight="16dp"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/tx_trailer"/>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

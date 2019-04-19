@@ -26,20 +26,20 @@ public class DetailActivity extends AppCompatActivity {
         displayDetail(resultsTrailers);
     }
 
-    private void displayDetail(TOAResponse.ResultsTrailer resultsTrailers){
+    private void displayDetail(TOAResponse.ResultsTrailer resultsTrailers) {
         Glide.with(this)
                 .load(Constants.BACKDROP_BASE_URL + resultsTrailers.getBackdropPath())
                 .into(activityDetailBinding.idDetailTop.backgroundImage);
 
         Glide.with(this)
-                .load(Constants.POSTER_BASE_URL+ resultsTrailers.getPosterPath())
+                .load(Constants.POSTER_BASE_URL + resultsTrailers.getPosterPath())
                 .into(activityDetailBinding.idDetailBot.posterImage);
 
         activityDetailBinding.idDetailBot.dJudul.setText(resultsTrailers.getName());
-//        activityDetailBinding.idDetailBot.dIdJudul.setText((int) resultsTrailers.getId());
+        activityDetailBinding.idDetailBot.dIdJudul.setText(String.valueOf(resultsTrailers.getId()));
         activityDetailBinding.idDetailBot.dTanggal.setText(resultsTrailers.getFirstAirDate());
-//        activityDetailBinding.idDetailBot.dVoteAverage.setText((int) resultsTrailers.getVoteAverage());
-//        activityDetailBinding.idDetailBot.dPopularity.setText((int) resultsTrailers.getPopularity());
+        activityDetailBinding.idDetailBot.dVoteAverage.setText(String.valueOf(resultsTrailers.getVoteAverage()));
+        activityDetailBinding.idDetailBot.dPopularity.setText(String.valueOf(resultsTrailers.getPopularity()));
         activityDetailBinding.idDetailBot.dLanguage.setText(resultsTrailers.getOriginalLanguage());
     }
 
