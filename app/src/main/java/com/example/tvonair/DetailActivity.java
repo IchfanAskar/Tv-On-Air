@@ -3,13 +3,24 @@ package com.example.tvonair;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.tvonair.adapter.ReviewAdapter;
+import com.example.tvonair.adapter.TrailerAdapter;
 import com.example.tvonair.common.Constants;
 import com.example.tvonair.databinding.ActivityDetailBinding;
+import com.example.tvonair.model.ReviewResponse;
 import com.example.tvonair.model.TOAResponse;
+import com.example.tvonair.model.TrailerResponse;
+import com.example.tvonair.remote.TOAService;
+
+import java.util.List;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -24,6 +35,12 @@ public class DetailActivity extends AppCompatActivity {
         activityDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
         displayDetail(resultsTrailers);
+
+        initRecyclerViewReview();
+        displayReview(resultsTrailers.getId());
+
+        initRecyclerViewTrailer();
+        displayTrailers(resultsTrailers.getId());
     }
 
     private void displayDetail(TOAResponse.ResultsTrailer resultsTrailers) {
@@ -43,9 +60,50 @@ public class DetailActivity extends AppCompatActivity {
         activityDetailBinding.idDetailBot.dLanguage.setText(resultsTrailers.getOriginalLanguage());
     }
 
-//    private void initRecyclerView(){
-//        LinearLayoutManager layoutManager =
-//                new LinearLayoutManager(DetailActivity.this, LinearLayoutManager.HORIZONTAL, false);
-//        activityDetailBinding.
-//    }
+    private void initRecyclerViewReview(){
+        LinearLayoutManager layoutManager =
+                new LinearLayoutManager(DetailActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        activityDetailBinding.idDetailBot.rvReview.setLayoutManager(layoutManager);
+    }
+
+    private void displayReview(int tvIdTrailer){
+        TOAService.getApi().getReviewByTvId(tvIdTrailer, "678ef42a1b584848591cbd02ac3899c3")
+                .enqueue(new Callback<ReviewResponse>() {
+                    @Override
+                    public void onResponse(Call<ReviewResponse> call, Response<ReviewResponse> response) {
+                        List<ReviewResponse.ResultsTrailer> reviews = response.body().getResults();
+                        ReviewAdapter reviewAdapter = new ReviewAdapter(reviews);
+                        activityDetailBinding.idDetailBot.rvReview.setAdapter(reviewAdapter);
+                    }
+
+                    @Override
+                    public void onFailure(Call<ReviewResponse> call, Throwable t) {
+                        Toast.makeText(DetailActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+    }
+
+    private void initRecyclerViewTrailer(){
+        LinearLayoutManager layoutManager =
+                new LinearLayoutManager(DetailActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        activityDetailBinding.idDetailBot.rvTrailer.setLayoutManager(layoutManager);
+    }
+
+    private void displayTrailers(int tvId){
+        TOAService.getApi().getTrailerByTvId(tvId, "678ef42a1b584848591cbd02ac3899c3")
+                .enqueue(new Callback<TrailerResponse>() {
+                    @Override
+                    public void onResponse(Call<TrailerResponse> call, Response<TrailerResponse> response) {
+                        List<TrailerResponse.ResultsTrailer> trailers = response.body().getResults();
+                        TrailerAdapter trailerAdapter = new TrailerAdapter(trailers);
+                        activityDetailBinding.idDetailBot.rvTrailer.setAdapter(trailerAdapter);
+                    }
+
+                    @Override
+                    public void onFailure(Call<TrailerResponse> call, Throwable t) {
+                        Toast.makeText(DetailActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 }
