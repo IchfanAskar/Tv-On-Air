@@ -2,12 +2,15 @@ package com.example.tvonair;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -34,6 +37,7 @@ public class DetailActivity extends AppCompatActivity {
 
         activityDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
+        activityDetailBinding.idDetailBot.pbreview.setVisibility(View.VISIBLE);
         displayDetail(resultsTrailers);
 
         initRecyclerViewReview();
@@ -61,16 +65,16 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void initRecyclerViewReview(){
-        LinearLayoutManager layoutManager =
-                new LinearLayoutManager(DetailActivity.this, LinearLayoutManager.HORIZONTAL, false);
-        activityDetailBinding.idDetailBot.rvReview.setLayoutManager(layoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(DetailActivity.this,  1);
+        activityDetailBinding.idDetailBot.rvReview.setLayoutManager(gridLayoutManager);
     }
 
-    private void displayReview(int tvIdTrailer){
-        TOAService.getApi().getReviewByTvId(tvIdTrailer, "678ef42a1b584848591cbd02ac3899c3")
+    private void displayReview(int tvId){
+        TOAService.getApi().getReviewByTvId(tvId, "678ef42a1b584848591cbd02ac3899c3")
                 .enqueue(new Callback<ReviewResponse>() {
                     @Override
                     public void onResponse(Call<ReviewResponse> call, Response<ReviewResponse> response) {
+                        activityDetailBinding.idDetailBot.pbreview.setVisibility(View.INVISIBLE);
                         List<ReviewResponse.ResultsTrailer> reviews = response.body().getResults();
                         ReviewAdapter reviewAdapter = new ReviewAdapter(reviews);
                         activityDetailBinding.idDetailBot.rvReview.setAdapter(reviewAdapter);

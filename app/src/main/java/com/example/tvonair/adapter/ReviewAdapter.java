@@ -1,6 +1,8 @@
 package com.example.tvonair.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +36,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
 
     @Override
     public void onBindViewHolder(@NonNull ReviewViewHolder holder, int position) {
-        final ReviewResponse.ResultsTrailer review = reviews.get(position);
+        ReviewResponse.ResultsTrailer review = reviews.get(position);
 
         holder.reviewListBinding.reviewContex.setText(review.getContent());
     }
