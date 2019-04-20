@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -45,6 +46,28 @@ public class DetailActivity extends AppCompatActivity {
 
         initRecyclerViewTrailer();
         displayTrailers(resultsTrailers.getId());
+
+
+        initToolbar(resultsTrailers.getOriginalName());
+
+       /* activityDetailBinding.btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onPause();
+            }
+        });*/
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
+    }
+
+    private void initToolbar(String title){
+        setSupportActionBar(activityDetailBinding.toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(title);
     }
 
     private void displayDetail(TOAResponse.ResultsTrailer resultsTrailers) {

@@ -6,8 +6,8 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DetailActivity"
-        android:background="#ffffff">
+        android:background="#ffffff"
+        tools:context=".DetailActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -18,20 +18,32 @@
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:contentScrim="?attr/colorPrimary"
+                app:contentScrim="@android:color/transparent"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
                 <!--app:titleEnabled="false"-->
 
 
                 <include
-                    layout="@layout/detail_top"
-                    android:id="@+id/id_detail_top"/>
+                    android:id="@+id/id_detail_top"
+                    layout="@layout/detail_top" />
 
                 <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:theme="@style/ThemeOverlay.AppCompat.Light"
-                    app:layout_collapseMode="pin"/>
+                    android:background="@android:color/transparent"
+                    app:layout_collapseMode="pin">
+
+                    <!--<androidx.appcompat.widget.AppCompatImageView-->
+                        <!--android:id="@+id/btn_back"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="16dp"-->
+                        <!--android:layout_marginTop="16dp"-->
+                        <!--android:src="@drawable/ic_arrow_back_black_24dp"-->
+                        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                        <!--app:layout_constraintTop_toTopOf="parent" />-->
+                </androidx.appcompat.widget.Toolbar>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -40,12 +52,13 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="16dp"
             app:behavior_overlapTop="100dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:padding="16dp">
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <include layout="@layout/detail_bot"
-                android:id="@+id/id_detail_bot" />
+            <include
+                android:id="@+id/id_detail_bot"
+                layout="@layout/detail_bot" />
         </androidx.core.widget.NestedScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
